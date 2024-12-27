@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0115327dbf26612a0e8be6507a9026391b88300d
 # User Registration Endpoint Documentation
 
 ## Endpoint: `/users/register`
@@ -73,4 +77,8 @@ curl -X POST http://localhost:3000/users/register \
   "email": "john.doe@example.com",
   "password": "password123"
 }'
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 0115327dbf26612a0e8be6507a9026391b88300d
