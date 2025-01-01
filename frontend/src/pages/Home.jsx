@@ -71,7 +71,7 @@ const Home = () => {
             })
             setPickupSuggestions(response.data)
         } catch {
-           
+            
         }
     }
 
@@ -86,7 +86,7 @@ const Home = () => {
             })
             setDestinationSuggestions(response.data)
         } catch {
-           
+            
         }
     }
 
