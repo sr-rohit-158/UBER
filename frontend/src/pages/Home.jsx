@@ -55,7 +55,7 @@ const Home = () => {
     socket.on('ride-started', ride => {
         console.log("ride")
         setWaitingForDriver(false)
-        navigate('/riding', { state: { ride } }) 
+        navigate('/riding', { state: { ride } }) // Updated navigate to include ride data
     })
 
 
@@ -71,7 +71,7 @@ const Home = () => {
             })
             setPickupSuggestions(response.data)
         } catch {
-            
+            // handle error
         }
     }
 
@@ -86,7 +86,7 @@ const Home = () => {
             })
             setDestinationSuggestions(response.data)
         } catch {
-            
+            // handle error
         }
     }
 
@@ -99,7 +99,7 @@ const Home = () => {
             gsap.to(panelRef.current, {
                 height: '70%',
                 padding: 24
-                
+                // opacity:1
             })
             gsap.to(panelCloseRef.current, {
                 opacity: 1
@@ -108,7 +108,7 @@ const Home = () => {
             gsap.to(panelRef.current, {
                 height: '0%',
                 padding: 0
-                
+                // opacity:0
             })
             gsap.to(panelCloseRef.current, {
                 opacity: 0
@@ -201,6 +201,7 @@ const Home = () => {
         <div className='h-screen relative overflow-hidden'>
             <img className='w-16 absolute left-5 top-5' src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" alt="" />
             <div className='h-screen w-screen'>
+                {/* image for temporary use  */}
                 <LiveTracking />
             </div>
             <div className=' flex flex-col justify-end h-screen absolute top-0 w-full'>

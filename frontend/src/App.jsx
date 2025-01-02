@@ -12,6 +12,8 @@ import Home from './pages/Home'
 import UserProtectWrapper from './pages/UserProtectWrapper'
 import CaptainHome from './pages/CaptainHome'
 import CaptainLogout from './pages/CaptainLogout'
+import UserLogout from './pages/UserLogout'
+import CaptainProtectWrapper from './pages/CaptainProtectWrapper'
 
 const App = () => {
 
