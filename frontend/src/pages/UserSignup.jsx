@@ -22,32 +22,41 @@ const UserSignup = () => {
 
 
   const submitHandler = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const newUser = {
-      fullname: {
-        firstname: firstName,
-        lastname: lastName
-      },
-      email: email,
-      password: password
+        fullname: {
+            firstname: firstName,
+            lastname: lastName,
+        },
+        email: email,
+        password: password,
+    };
+
+    try {
+        console.log('Requesting registration with:', newUser);
+
+        const response = await axios.post(
+            `${import.meta.env.VITE_BASE_URL}/users/register`,
+            newUser
+        );
+
+        if (response.status === 201) {
+            const data = response.data;
+            setUser(data.user);
+            localStorage.setItem('token', data.token);
+            navigate('/home');
+        }
+
+        setEmail('');
+        setFirstName('');
+        setLastName('');
+        setPassword('');
+    } catch (error) {
+        console.error('Registration failed:', error);
+        alert('Registration failed. Please check your details and try again.');
     }
+};
 
-    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, newUser)
-
-    if (response.status === 201) {
-      const data = response.data
-      setUser(data.user)
-      localStorage.setItem('token', data.token)
-      navigate('/home')
-    }
-
-
-    setEmail('')
-    setFirstName('')
-    setLastName('')
-    setPassword('')
-
-  };
   return (
     <div>
       <div className='p-7 h-screen flex flex-col justify-between'>
